@@ -21,9 +21,22 @@
 This repository provides a rigorous, reproducible framework for comparing AI agent SDKs. The initial comparison evaluates:
 
 - **[Pi Agent SDK](https://github.com/badlogic/pi-mono)** (TypeScript) by Mario Zechner
-- **[Anthropic Python SDK](https://github.com/anthropics/anthropic-sdk-python)** (Python) by Anthropic
+- **[Anthropic SDK](https://github.com/anthropics/anthropic-sdk-python)** (Python) - Basic API client
 
 Both SDKs were tested using identical conditions: same model (Claude Opus 4.5), same infrastructure (AWS Bedrock), and identical test prompts across 10 real-world software engineering tasks.
+
+### Important Note on Anthropic SDKs
+
+Anthropic provides multiple SDKs:
+
+| SDK | Language | Type | Included |
+|-----|----------|------|----------|
+| `anthropic` | Python | API Client | **Yes** |
+| `@anthropic-ai/sdk` | TypeScript | API Client | Planned |
+| `claude-agent-sdk` | Python | Agent Framework | Planned |
+| `@anthropic-ai/claude-agent-sdk` | TypeScript | Agent Framework | Planned |
+
+This benchmark currently uses the basic Anthropic Python SDK (`anthropic`). The [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-typescript), which provides full agent capabilities similar to Pi Agent SDK, will be added in future comparisons.
 
 ### Why This Matters
 

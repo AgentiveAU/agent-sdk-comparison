@@ -1,4 +1,4 @@
-# Comparative Analysis of AI Agent SDKs: Pi Agent SDK vs Anthropic Python SDK
+# Comparative Analysis of AI Agent SDKs: Pi Agent SDK vs Anthropic SDK (API Client)
 
 **A Comprehensive Benchmark Study Using Claude Opus 4.5 on AWS Bedrock**
 
@@ -10,9 +10,11 @@
 
 ## Abstract
 
-This paper presents a rigorous comparative analysis of two leading AI agent software development kits (SDKs): the Pi Agent SDK (TypeScript) and the Anthropic Python SDK. Both SDKs were evaluated using identical test conditions, including the same underlying model (Claude Opus 4.5), the same cloud infrastructure (AWS Bedrock), and identical prompt sets across ten real-world software engineering tasks.
+This paper presents a rigorous comparative analysis of two approaches to building AI-powered applications: the Pi Agent SDK (TypeScript) and the Anthropic SDK API client (Python). Both were evaluated using identical test conditions, including the same underlying model (Claude Opus 4.5), the same cloud infrastructure (AWS Bedrock), and identical prompt sets across ten real-world software engineering tasks.
 
-Our findings reveal that while the Anthropic Python SDK demonstrates marginally faster execution times (20% improvement in total duration), the Pi Agent SDK consistently generates more comprehensive responses (27% more output tokens). Both SDKs achieved 100% task completion rates, indicating robust reliability for production use cases.
+**Important Note**: Anthropic provides multiple SDKs across different languages. This study specifically compares the basic Anthropic API client (`anthropic` package) against the Pi Agent SDK. Anthropic also offers the Claude Agent SDK (available in both TypeScript and Python), which provides full agent capabilities similar to Pi Agent SDK. A comparison including the Claude Agent SDK is planned for future work.
+
+Our findings reveal that while the Anthropic SDK demonstrates marginally faster execution times (20% improvement in total duration), the Pi Agent SDK consistently generates more comprehensive responses (27% more output tokens). Both achieved 100% task completion rates, indicating robust reliability for production use cases.
 
 ---
 
@@ -75,9 +77,19 @@ The Pi Agent SDK is part of a monorepo (`pi-mono`) that provides a comprehensive
 
 The SDK is designed with flexibility in mind, allowing developers to switch between providers without code changes. It implements streaming responses, thinking/reasoning capabilities, and comprehensive usage tracking.
 
-### 2.2 Anthropic Python SDK
+### 2.2 Anthropic SDK Ecosystem
 
-The Anthropic Python SDK is the official client library for accessing Claude models. It provides:
+Anthropic provides a comprehensive SDK ecosystem across multiple languages:
+
+**Basic API Clients:**
+- **anthropic** (Python): Direct API access to Claude models
+- **@anthropic-ai/sdk** (TypeScript/JavaScript): Direct API access to Claude models
+
+**Agent SDKs (Claude Agent SDK):**
+- **claude-agent-sdk** (Python): Full agent framework with Claude Code capabilities
+- **@anthropic-ai/claude-agent-sdk** (TypeScript): Full agent framework with Claude Code capabilities
+
+This study uses the **basic Anthropic Python SDK** (`anthropic` v0.76.0), which provides:
 
 - Direct API access to Anthropic's hosted models
 - AWS Bedrock integration via `AnthropicBedrock` client
@@ -85,9 +97,18 @@ The Anthropic Python SDK is the official client library for accessing Claude mod
 - Native async/await patterns
 - Built-in retry logic and error handling
 
-The SDK focuses on simplicity and direct model access rather than agent orchestration features.
+The basic SDK focuses on simplicity and direct model access rather than agent orchestration features. The Claude Agent SDK, by contrast, provides full agent capabilities including tool use, file operations, and code execution, similar to Pi Agent SDK.
 
-### 2.3 AWS Bedrock
+### 2.3 Why Not Compare Claude Agent SDK?
+
+The Claude Agent SDK wraps Claude Code and provides agent capabilities. However, for this initial benchmark, we chose to compare:
+
+1. **Pi Agent SDK**: A third-party agent framework with multi-provider support
+2. **Anthropic SDK (basic)**: The foundational API client
+
+This comparison establishes baseline performance metrics for API-level interactions. A future study will include the Claude Agent SDK to compare full agent framework capabilities.
+
+### 2.4 AWS Bedrock
 
 Amazon Bedrock serves as a unified inference platform that hosts foundation models from multiple providers. For this study, Bedrock provides:
 
@@ -97,6 +118,18 @@ Amazon Bedrock serves as a unified inference platform that hosts foundation mode
 - Enterprise-grade reliability and security
 
 Using Bedrock eliminates variables related to network routing, rate limiting policies, and infrastructure performance that would otherwise confound SDK-level comparisons.
+
+### 2.5 SDK Comparison Matrix
+
+| Feature | Pi Agent SDK | Anthropic SDK (basic) | Claude Agent SDK |
+|---------|-------------|----------------------|------------------|
+| Language | TypeScript | Python, TypeScript | Python, TypeScript |
+| Type | Agent Framework | API Client | Agent Framework |
+| Multi-provider | Yes (Anthropic, OpenAI, Google, Bedrock) | No (Anthropic only) | No (Claude only) |
+| Tool Execution | Yes | No | Yes |
+| State Management | Yes | No | Yes |
+| Claude Code Integration | No | No | Yes |
+| This Study | Included | Included | Future Work |
 
 ---
 
@@ -474,21 +507,25 @@ For organisations requiring detailed, comprehensive AI outputs and multi-provide
 
 We identify several areas for future research:
 
-1. **Qualitative Analysis**: Human evaluation of response quality and correctness
-2. **Concurrent Performance**: Testing under parallel load conditions
-3. **Model Comparison**: Extending analysis to Sonnet, Haiku, and competitor models
-4. **Streaming Performance**: Measuring time-to-first-token and streaming throughput
-5. **Error Recovery**: Testing behaviour under adverse conditions (rate limits, network failures)
-6. **Agent Capabilities**: Comparing tool use, multi-turn conversations, and stateful interactions
+1. **Claude Agent SDK Comparison**: Adding Anthropic's official Claude Agent SDK (available in both TypeScript and Python) to provide a complete comparison of agent frameworks
+2. **Qualitative Analysis**: Human evaluation of response quality and correctness
+3. **Concurrent Performance**: Testing under parallel load conditions
+4. **Model Comparison**: Extending analysis to Sonnet, Haiku, and competitor models
+5. **Streaming Performance**: Measuring time-to-first-token and streaming throughput
+6. **Error Recovery**: Testing behaviour under adverse conditions (rate limits, network failures)
+7. **Agent Capabilities**: Comparing tool use, multi-turn conversations, and stateful interactions with the Claude Agent SDK
+8. **Additional Frameworks**: LangChain, LlamaIndex, AutoGen, and CrewAI comparisons
 
 ---
 
 ## 10. References
 
 1. Anthropic. (2025). *Claude API Documentation*. https://docs.anthropic.com
-2. Zechner, M. (2025). *Pi Agent SDK*. https://github.com/badlogic/pi-mono
-3. Amazon Web Services. (2025). *Amazon Bedrock Documentation*. https://docs.aws.amazon.com/bedrock
-4. Anthropic. (2025). *Claude Opus 4.5 Model Card*. https://www.anthropic.com/claude
+2. Anthropic. (2025). *Claude Agent SDK (TypeScript)*. https://github.com/anthropics/claude-agent-sdk-typescript
+3. Anthropic. (2025). *Claude Agent SDK (Python)*. https://github.com/anthropics/claude-agent-sdk-python
+4. Zechner, M. (2025). *Pi Agent SDK*. https://github.com/badlogic/pi-mono
+5. Amazon Web Services. (2025). *Amazon Bedrock Documentation*. https://docs.aws.amazon.com/bedrock
+6. Anthropic. (2025). *Claude Opus 4.5 Model Card*. https://www.anthropic.com/claude
 
 ---
 
