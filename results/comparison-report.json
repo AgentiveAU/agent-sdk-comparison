@@ -1,0 +1,236 @@
+{
+  "comparisons": [
+    {
+      "testName": "Bug Detection",
+      "piSdk": {
+        "duration": 7338,
+        "tokensIn": 379,
+        "tokensOut": 454,
+        "cost": 0.039735,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 8165,
+        "tokensIn": 379,
+        "tokensOut": 457,
+        "cost": 0.03996,
+        "success": true
+      },
+      "winner": {
+        "speed": "pi",
+        "cost": "tie"
+      }
+    },
+    {
+      "testName": "Code Refactoring",
+      "piSdk": {
+        "duration": 14661,
+        "tokensIn": 587,
+        "tokensOut": 1657,
+        "cost": 0.13308,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 14380,
+        "tokensIn": 587,
+        "tokensOut": 1698,
+        "cost": 0.13615500000000003,
+        "success": true
+      },
+      "winner": {
+        "speed": "tie",
+        "cost": "tie"
+      }
+    },
+    {
+      "testName": "Algorithm Implementation",
+      "piSdk": {
+        "duration": 27752,
+        "tokensIn": 64,
+        "tokensOut": 2534,
+        "cost": 0.19100999999999999,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 22451,
+        "tokensIn": 64,
+        "tokensOut": 2222,
+        "cost": 0.16760999999999998,
+        "success": true
+      },
+      "winner": {
+        "speed": "claude",
+        "cost": "claude"
+      }
+    },
+    {
+      "testName": "Complex Reasoning",
+      "piSdk": {
+        "duration": 20525,
+        "tokensIn": 120,
+        "tokensOut": 1337,
+        "cost": 0.102075,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 27236,
+        "tokensIn": 120,
+        "tokensOut": 1809,
+        "cost": 0.137475,
+        "success": true
+      },
+      "winner": {
+        "speed": "pi",
+        "cost": "pi"
+      }
+    },
+    {
+      "testName": "Multi-step Task",
+      "piSdk": {
+        "duration": 26316,
+        "tokensIn": 105,
+        "tokensOut": 2847,
+        "cost": 0.2151,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 27407,
+        "tokensIn": 105,
+        "tokensOut": 2960,
+        "cost": 0.223575,
+        "success": true
+      },
+      "winner": {
+        "speed": "tie",
+        "cost": "tie"
+      }
+    },
+    {
+      "testName": "Code Review",
+      "piSdk": {
+        "duration": 9867,
+        "tokensIn": 250,
+        "tokensOut": 620,
+        "cost": 0.05025,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 10082,
+        "tokensIn": 250,
+        "tokensOut": 616,
+        "cost": 0.049949999999999994,
+        "success": true
+      },
+      "winner": {
+        "speed": "tie",
+        "cost": "tie"
+      }
+    },
+    {
+      "testName": "SQL Optimisation",
+      "piSdk": {
+        "duration": 14244,
+        "tokensIn": 248,
+        "tokensOut": 870,
+        "cost": 0.06897,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 17087,
+        "tokensIn": 248,
+        "tokensOut": 1224,
+        "cost": 0.09552000000000001,
+        "success": true
+      },
+      "winner": {
+        "speed": "pi",
+        "cost": "pi"
+      }
+    },
+    {
+      "testName": "API Design",
+      "piSdk": {
+        "duration": 82376,
+        "tokensIn": 128,
+        "tokensOut": 9318,
+        "cost": 0.70077,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 68522,
+        "tokensIn": 128,
+        "tokensOut": 7198,
+        "cost": 0.5417700000000001,
+        "success": true
+      },
+      "winner": {
+        "speed": "claude",
+        "cost": "claude"
+      }
+    },
+    {
+      "testName": "Security Audit",
+      "piSdk": {
+        "duration": 25043,
+        "tokensIn": 359,
+        "tokensOut": 2259,
+        "cost": 0.17481000000000002,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 21249,
+        "tokensIn": 359,
+        "tokensOut": 2149,
+        "cost": 0.16655999999999999,
+        "success": true
+      },
+      "winner": {
+        "speed": "claude",
+        "cost": "tie"
+      }
+    },
+    {
+      "testName": "Architecture Decision",
+      "piSdk": {
+        "duration": 148982,
+        "tokensIn": 146,
+        "tokensOut": 14417,
+        "cost": 1.083465,
+        "success": true
+      },
+      "claudeSdk": {
+        "duration": 86872,
+        "tokensIn": 146,
+        "tokensOut": 8192,
+        "cost": 0.61659,
+        "success": true
+      },
+      "winner": {
+        "speed": "claude",
+        "cost": "claude"
+      }
+    }
+  ],
+  "summary": {
+    "piTotals": {
+      "duration": 377104,
+      "tokensIn": 2386,
+      "tokensOut": 36313,
+      "cost": 2.759265,
+      "passed": 10
+    },
+    "claudeTotals": {
+      "duration": 303451,
+      "tokensIn": 2386,
+      "tokensOut": 28525,
+      "cost": 2.1751650000000002,
+      "passed": 10
+    },
+    "speedWins": {
+      "pi": 3,
+      "claude": 4,
+      "tie": 3
+    }
+  },
+  "generatedAt": "2026-01-29T13:26:07.337Z"
+}

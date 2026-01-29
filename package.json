@@ -1,0 +1,22 @@
+{
+  "name": "agent-sdk-comparison",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Compare Pi Agent SDK vs Anthropic Python SDK (both via AWS Bedrock)",
+  "scripts": {
+    "test:pi": "node --import tsx tests/pi-tests.ts",
+    "test:anthropic": "source .venv/bin/activate && python3 tests/anthropic-bedrock-tests.py",
+    "test:all": "npm run test:pi && npm run test:anthropic",
+    "compare": "node --import tsx compare-results.ts",
+    "run-all": "./run-comparison.sh"
+  },
+  "dependencies": {
+    "@mariozechner/pi-ai": "^0.50.0",
+    "@mariozechner/pi-agent-core": "^0.50.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0"
+  }
+}
