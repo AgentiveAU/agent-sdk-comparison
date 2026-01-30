@@ -39,6 +39,14 @@ Our findings reveal that while the Anthropic SDK demonstrates marginally faster 
 
 The rapid evolution of large language models (LLMs) has spawned a diverse ecosystem of SDKs designed to integrate AI capabilities into software applications. For developers and organisations evaluating these tools, understanding the practical differences between SDKs is crucial for making informed architectural decisions.
 
+At Agentive, we have extensive production experience with multiple AI agent frameworks. Our **Agentive MultiAgent System** has been built using both Pi Agent SDK and Anthropic SDK, alongside LangChain and LlamaIndex for different components. Two recent developments made this systematic comparison timely:
+
+1. **MoltBot (ClawdBot) viral success**: This open-source personal assistant built on Pi Agent SDK demonstrated impressive results and gained significant attention in the AI developer community, validating Pi Agent SDK as a serious production-ready framework.
+
+2. **Production success with Anthropic SDK**: Our own products, [MyAgentive](https://myagentive.ai) and [AgentiveStaff](https://agentive.au/ai-staff/), both built on the Anthropic SDK (which wraps Claude Code capabilities), have been delivering exceptional results for enterprise clients.
+
+We wanted to go beyond anecdotal experience and assess each framework's **personality and power points** through rigorous, reproducible benchmarking.
+
 This study addresses three primary research questions:
 
 1. **Performance**: How do execution speeds compare when using identical models and infrastructure?
@@ -135,6 +143,41 @@ Using Bedrock eliminates variables related to network routing, rate limiting pol
 | State Management | Yes | No | Yes |
 | Claude Code Integration | No | No | Yes |
 | This Study | Included | Python version | Future Work |
+
+### 2.6 Architectural Philosophy Comparison
+
+Understanding the architectural philosophy behind each SDK is essential for selecting the right tool.
+
+#### Pi Agent SDK: Provider-Agnostic Agent Orchestration
+
+Pi Agent SDK is designed as a comprehensive agent framework with the following architectural principles:
+
+- **Multi-provider abstraction**: A unified API allows switching between Anthropic, OpenAI, Google, and AWS Bedrock without code changes. This is valuable for organisations wanting to avoid vendor lock-in or needing to use different models for different tasks.
+- **Stateful agent design**: Built-in state management and context persistence eliminate boilerplate code for maintaining conversation history and agent state.
+- **Tool-first architecture**: Native support for function calling and tool orchestration makes it straightforward to build agents that interact with external systems.
+- **TypeScript-first**: Excellent type safety and IDE support, particularly valuable for large codebases and team development.
+
+#### Anthropic SDK: Optimised Direct Access
+
+The Anthropic SDK takes a different approach, focusing on direct, efficient access to Claude models:
+
+- **Claude-optimised**: The SDK is specifically tuned for Claude's capabilities, including thinking/reasoning features, vision, and extended context windows.
+- **Minimal abstraction**: A lightweight layer between your code and the API maximises performance and gives developers full control.
+- **Native async patterns**: First-class async/await support enables efficient streaming and concurrent request handling.
+- **Multi-language availability**: Available in 7 programming languages, allowing teams to use their preferred stack.
+
+#### When to Choose Each
+
+Based on our production experience at Agentive:
+
+| Use Case | Recommended SDK | Reasoning |
+|----------|-----------------|-----------|
+| Claude-focused products | Anthropic SDK | Optimised performance, direct access to Claude features |
+| Multi-provider requirements | Pi Agent SDK | Easy provider switching, vendor flexibility |
+| TypeScript/Node.js stack | Pi Agent SDK | Native TypeScript, excellent type safety |
+| Python data science | Anthropic SDK | Native Python, async patterns |
+| Rapid prototyping | Either | Both are well-documented and quick to start |
+| Enterprise agent systems | Depends | Consider specific requirements for state, tools, providers |
 
 ---
 
@@ -529,8 +572,11 @@ We identify several areas for future research:
 2. Anthropic. (2025). *Claude Agent SDK (TypeScript)*. https://github.com/anthropics/claude-agent-sdk-typescript
 3. Anthropic. (2025). *Claude Agent SDK (Python)*. https://github.com/anthropics/claude-agent-sdk-python
 4. Zechner, M. (2025). *Pi Agent SDK*. https://github.com/badlogic/pi-mono
-5. Amazon Web Services. (2025). *Amazon Bedrock Documentation*. https://docs.aws.amazon.com/bedrock
-6. Anthropic. (2025). *Claude Opus 4.5 Model Card*. https://www.anthropic.com/claude
+5. Zechner, M. (2025). *MoltBot (ClawdBot)*. https://github.com/badlogic/moltbot
+6. Amazon Web Services. (2025). *Amazon Bedrock Documentation*. https://docs.aws.amazon.com/bedrock
+7. Anthropic. (2025). *Claude Opus 4.5 Model Card*. https://www.anthropic.com/claude
+8. Agentive. (2026). *MyAgentive: Personal AI Agent*. https://myagentive.ai
+9. Agentive. (2026). *AgentiveStaff: AI Employees*. https://agentive.au/ai-staff/
 
 ---
 
