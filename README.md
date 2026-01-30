@@ -27,16 +27,26 @@ Both SDKs were tested using identical conditions: same model (Claude Opus 4.5), 
 
 ### Important Note on Anthropic SDKs
 
-Anthropic provides multiple SDKs:
+Anthropic provides SDKs in **7 languages** plus dedicated Agent SDKs:
 
-| SDK | Language | Type | Included |
-|-----|----------|------|----------|
-| `anthropic` | Python | API Client | **Yes** |
-| `@anthropic-ai/sdk` | TypeScript | API Client | Planned |
-| `claude-agent-sdk` | Python | Agent Framework | Planned |
-| `@anthropic-ai/claude-agent-sdk` | TypeScript | Agent Framework | Planned |
+**Basic API Clients:**
+| SDK | Language | Included |
+|-----|----------|----------|
+| `anthropic-sdk-python` | Python | **Yes** |
+| `anthropic-sdk-typescript` | TypeScript | Planned |
+| `anthropic-sdk-go` | Go | Planned |
+| `anthropic-sdk-java` | Java | Planned |
+| `anthropic-sdk-ruby` | Ruby | Planned |
+| `anthropic-sdk-csharp` | C# | Planned |
+| `anthropic-sdk-php` | PHP | Planned |
 
-This benchmark currently uses the basic Anthropic Python SDK (`anthropic`). The [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-typescript), which provides full agent capabilities similar to Pi Agent SDK, will be added in future comparisons.
+**Agent SDKs (Claude Agent SDK):**
+| SDK | Language | Included |
+|-----|----------|----------|
+| `claude-agent-sdk-python` | Python | Planned |
+| `claude-agent-sdk-typescript` | TypeScript | Planned |
+
+This benchmark currently uses the basic Anthropic Python SDK. The [Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk-typescript), which provides full agent capabilities similar to Pi Agent SDK, will be added in future comparisons.
 
 ### Why This Matters
 

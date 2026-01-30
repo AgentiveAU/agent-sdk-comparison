@@ -81,13 +81,18 @@ The SDK is designed with flexibility in mind, allowing developers to switch betw
 
 Anthropic provides a comprehensive SDK ecosystem across multiple languages:
 
-**Basic API Clients:**
-- **anthropic** (Python): Direct API access to Claude models
-- **@anthropic-ai/sdk** (TypeScript/JavaScript): Direct API access to Claude models
+**Basic API Clients (7 languages):**
+- **anthropic-sdk-python**: Python
+- **anthropic-sdk-typescript**: TypeScript/JavaScript
+- **anthropic-sdk-go**: Go
+- **anthropic-sdk-java**: Java
+- **anthropic-sdk-ruby**: Ruby
+- **anthropic-sdk-csharp**: C#
+- **anthropic-sdk-php**: PHP
 
 **Agent SDKs (Claude Agent SDK):**
-- **claude-agent-sdk** (Python): Full agent framework with Claude Code capabilities
-- **@anthropic-ai/claude-agent-sdk** (TypeScript): Full agent framework with Claude Code capabilities
+- **claude-agent-sdk-python**: Full agent framework with Claude Code capabilities
+- **claude-agent-sdk-typescript**: Full agent framework with Claude Code capabilities
 
 This study uses the **basic Anthropic Python SDK** (`anthropic` v0.76.0), which provides:
 
@@ -123,13 +128,13 @@ Using Bedrock eliminates variables related to network routing, rate limiting pol
 
 | Feature | Pi Agent SDK | Anthropic SDK (basic) | Claude Agent SDK |
 |---------|-------------|----------------------|------------------|
-| Language | TypeScript | Python, TypeScript | Python, TypeScript |
+| Languages | TypeScript | Python, TypeScript, Go, Java, Ruby, C#, PHP | Python, TypeScript |
 | Type | Agent Framework | API Client | Agent Framework |
-| Multi-provider | Yes (Anthropic, OpenAI, Google, Bedrock) | No (Anthropic only) | No (Claude only) |
+| Multi-provider | Yes (Anthropic, OpenAI, Google, Bedrock) | No (Anthropic/Bedrock only) | No (Claude only) |
 | Tool Execution | Yes | No | Yes |
 | State Management | Yes | No | Yes |
 | Claude Code Integration | No | No | Yes |
-| This Study | Included | Included | Future Work |
+| This Study | Included | Python version | Future Work |
 
 ---
 
